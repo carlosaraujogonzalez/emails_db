@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: microDb
+
+  flyway:
+    enabled: true
+    locations: db/migration/emails
+    validateMigrationNaming: true
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gbtec
+    username: root
+    password: admin
+
+  h2:
+    console:
+      enabled: true
+
+  # create and drop table, good for testing, production set to none or comment it
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
