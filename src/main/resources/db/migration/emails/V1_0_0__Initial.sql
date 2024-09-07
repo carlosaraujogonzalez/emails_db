@@ -2,6 +2,8 @@
 DROP TABLE IF EXISTS `gbtec`.`emailscc`;
 DROP TABLE IF EXISTS `gbtec`.`emailsto`;
 DROP TABLE IF EXISTS `gbtec`.`emails`;
+DROP TABLE IF EXISTS `gbtec`.`emailscc_seq`;
+DROP TABLE IF EXISTS `gbtec`.`emailsto_seq`;
 
 CREATE TABLE IF NOT EXISTS `gbtec`.`emails` (
   `emailid` INT NOT NULL,
@@ -34,3 +36,12 @@ CREATE TABLE IF NOT EXISTS `gbtec`.`emailsto` (
     REFERENCES `gbtec`.`emails` (`emailid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+CREATE TABLE gbtec.emailscc_seq (
+  `next_val` bigint(20) DEFAULT NULL);
+INSERT INTO gbtec.emailscc_seq VALUES(0);
+
+CREATE TABLE gbtec.emailsto_seq (
+  `next_val` bigint(20) DEFAULT NULL
+);
+INSERT INTO gbtec.emailsto_seq VALUES(0);

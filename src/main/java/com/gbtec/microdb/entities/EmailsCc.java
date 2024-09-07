@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 public class EmailsCc {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emailsccSeqGen")
+    @SequenceGenerator(name = "emailsccSeqGen", sequenceName = "emailscc_seq", allocationSize = 1)
     @Column(name="emailsccid")
     private Integer emailsccid;
     
